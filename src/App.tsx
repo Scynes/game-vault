@@ -1,10 +1,12 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 
+import Navigation from "@components/Navigation";
+
 const App = () => {
     return (
         <Grid templateAreas={{ base: `'nav' 'main'`, lg: `'nav nav' 'aside main'` }}>
-            <GridItem area={'nav'} bg={'coral'}>
-                Navigation
+            <GridItem area={'nav'}>
+                <Navigation />
             </GridItem>
             <Show above="lg">
                 <GridItem area={'aside'} bg={'crimson'}>
