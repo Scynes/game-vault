@@ -1,14 +1,15 @@
-import useGameCatalog from "@hooks/useGameCatalog";
+import useGamesCollection from "@hooks/useGamesCollection";
 
 const GameGallery = () => {
 
-    const { games, error } = useGameCatalog();
+    const { collection } = useGamesCollection();
 
     return (
         <ul>
-            { games.map((game, index) => (
+            { collection.map((game, index) => (
                 <li key={ index }>{ game.name }</li>
             )) }
+            
         </ul>
     );
 }
