@@ -9,7 +9,6 @@ const GameGallery = () => {
             { collection.map((game, index) => (
                 <li key={ index }>{ game.name }</li>
             )) }
-            
         </ul>
     );
 }
