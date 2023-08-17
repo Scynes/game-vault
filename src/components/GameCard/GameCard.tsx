@@ -1,5 +1,6 @@
-import { Card, CardBody, Heading, Image } from '@chakra-ui/react';
+import { Card, CardBody, HStack, Heading, Image } from '@chakra-ui/react';
 import GamePlatform from '@components/GamePlatform';
+import GameScore from '@components/GameScore/GameScore';
 import Game from '@interfaces/Game';
 
 /**
@@ -22,7 +23,10 @@ const GameCard = ({ game }: Properties) => {
             <Image src={ game.background_image } />
             <CardBody>
                 <Heading fontSize={ '2xl' }>{ game.name }</Heading>
-                <GamePlatform platforms={ game.parent_platforms.map(p => p.platform) } />
+                <HStack justifyContent={ 'space-between' }>
+                    <GamePlatform platforms={ game.parent_platforms.map(p => p.platform) } />
+                    <GameScore score={ game.metacritic } />
+                </HStack>
             </CardBody>
         </Card>
     );

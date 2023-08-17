@@ -40,7 +40,7 @@ const GamePlatform = ({ platforms }: Properties) => {
         // A horizontal stack of platform icons.
         <HStack>
             { platforms.map((platform, index) => (
-                <Icon as={ platformIcon[ platform.slug ] } key={ index } boxSize={ '1.5rem' } marginY={ '1rem' } color={ 'green.300' }/>
+                <Icon as={ platformIcon[ platform.slug ] } key={ index } boxSize={ '1.25rem' } marginY={ '1rem' } color={ 'green.300' }/>
             )) }
         </HStack>
     );
