@@ -17,10 +17,10 @@ interface Properties {
  */
 const GameCard = ({ game }: Properties) => {
     return (
-        <Card>
+        <Card borderRadius={ '1.5rem' } overflow={ 'hidden' }>
             <Image src={ game.background_image } />
             <CardBody>
-                <Heading>{ game.name }</Heading>
+                <Heading fontSize={ '2xl' }>{ game.name }</Heading>
             </CardBody>
         </Card>
     );
