@@ -28,6 +28,7 @@ export default <T>(endpoint: string) => {
 
     const [ collection, setCollection ] = useState<T[]>([]);
     const [ error, setError ] = useState('');
+    const [ isLoading, setIsLoading ] = useState(true)
 
     useEffect(() => {
 
@@ -36,10 +37,11 @@ export default <T>(endpoint: string) => {
         apiClient
             .get<APIResponse<T>>(endpoint, { signal: controller.signal })
             .then(response => setCollection(response.data.results))
-            .catch(error =>  (!(error instanceof CanceledError) && setError(error.message)))
+            .catch(error => (!(error instanceof CanceledError) && setError(error.message)))
+            .finally(() => setIsLoading(false));
 
         return () => controller.abort();
     }, []);
 
-    return { collection, error };
+    return { collection, error, isLoading };
 }
