@@ -2,6 +2,7 @@ import { Card, CardBody, HStack, Heading, Image } from '@chakra-ui/react';
 import GamePlatform from '@components/GamePlatform';
 import GameScore from '@components/GameScore/GameScore';
 import Game from '@interfaces/Game';
+import { getCroppedImageURL } from '@services/image';
 
 /**
  * Describes the expected properties for the GameCard component.
@@ -20,7 +21,7 @@ interface Properties {
 const GameCard = ({ game }: Properties) => {
     return (
         <Card borderRadius={ '1.5rem' } overflow={ 'hidden' }>
-            <Image src={ game.background_image } />
+            <Image src={ getCroppedImageURL(game.background_image) } />
             <CardBody>
                 <Heading fontSize={ '2xl' }>{ game.name }</Heading>
                 <HStack justifyContent={ 'space-between' }>
