@@ -5,12 +5,25 @@ import { HStack, Icon } from '@chakra-ui/react';
 
 import Platform from "@interfaces/Platform";
 
+/**
+ * Interface representing the platforms where a game is available.
+ *
+ * @param {Properties} props - The properties containing the platforms information.
+ */
 interface Properties {
+
+    // An array of platform objects containing information about the platforms.
     platforms: Platform[]
 }
 
+/**
+ * A component that displays icons representing the platforms where a game is available.
+ *
+ * @param {Properties} props - The properties containing the platforms information.
+ */
 const GamePlatform = ({ platforms }: Properties) => {
 
+    // Mapping of platform slugs to their corresponding icons.
     const platformIcon: { [key: string]: IconType } = {
         xbox: BsXbox,
         playstation: BsPlaystation,
@@ -24,6 +37,7 @@ const GamePlatform = ({ platforms }: Properties) => {
     }
 
     return (
+        // A horizontal stack of platform icons.
         <HStack>
             { platforms.map((platform, index) => (
                 <Icon as={ platformIcon[ platform.slug ] } key={ index } boxSize={ '1.5rem' } marginY={ '1rem' } color={ 'green.300' }/>
