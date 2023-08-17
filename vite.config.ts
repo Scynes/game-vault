@@ -10,7 +10,8 @@ export default defineConfig({
             '@assets': '/src/assets',
             '@common': '/src/common',
             '@services': '/src/services',
-            '@hooks': '/src/hooks'
+            '@hooks': '/src/hooks',
+            '@interfaces': '/src/hooks'
         },
     },
 })
