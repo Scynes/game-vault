@@ -22,7 +22,7 @@ interface Properties {
  */
 const GameCard = ({ game }: Properties) => {
     return (
-        <Card h={ '100%' }>
+        <Card borderRadius={ '1.5rem' }>
             <Image src={ getCroppedImageURL(game.background_image) } />
             <CardBody>
                 <Heading fontSize={ '2xl' }>{ game.name }</Heading>
