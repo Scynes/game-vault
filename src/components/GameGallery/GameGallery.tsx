@@ -1,6 +1,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 
 import GameCard from "@components/GameCard";
+import Skeleton from "@components/GameCard/Skeleton";
 import useGamesCollection from "@hooks/useGamesCollection";
 
 /**
@@ -9,11 +10,15 @@ import useGamesCollection from "@hooks/useGamesCollection";
 const GameGallery = () => {
 
     // Fetches a collection of games using a custom hook.
-    const { collection } = useGamesCollection();
+    const { collection, isLoading } = useGamesCollection();
+
+    // Temp solution: represents the number of skeletons to render.
+    const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
     return (
         // A grid layout that adjusts the number of columns based on screen size.
         <SimpleGrid columns={ { sm: 1, md: 2, lg: 3, xl: 4 } } padding={ '1.5rem' } spacing={ '2.25rem' }>
+            { isLoading && skeletons.map(skeleton => <Skeleton key={ skeleton } />)}
             { collection.map( (game) => (
                 <GameCard game={ game } key={ game.id }/>
             )) }

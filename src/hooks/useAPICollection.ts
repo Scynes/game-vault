@@ -38,7 +38,11 @@ export default <T>(endpoint: string) => {
             .get<APIResponse<T>>(endpoint, { signal: controller.signal })
             .then(response => setCollection(response.data.results))
             .catch(error => (!(error instanceof CanceledError) && setError(error.message)))
-            .finally(() => setIsLoading(false));
+            .finally(() => {
+                if (!controller.signal.aborted) {
+                    setIsLoading(false);
+                }
+            });
 
         return () => controller.abort();
     }, []);
