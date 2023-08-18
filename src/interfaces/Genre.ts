@@ -1,4 +1,3 @@
-
 /**
  * Represents the structure of a genre object. Genres are used to
  * catagorize and classify different types of games.
@@ -9,5 +8,8 @@ export default interface Genre {
     id: number,
 
     // The name of the genre.
-    name: string
+    name: string,
+
+    // The placeholder background image representing a genre.
+    image_background: string
 }
