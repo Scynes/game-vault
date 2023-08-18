@@ -20,13 +20,13 @@ const GameGallery = () => {
         // A grid layout that adjusts the number of columns based on screen size.
         <SimpleGrid columns={ { sm: 1, md: 2, lg: 3, xl: 4 } } padding={ '1.5rem' } spacing={ '2.25rem' }>
             { isLoading && skeletons.map(skeleton => (
-                <Container>
-                    <Skeleton key={ skeleton } />
+                <Container key={ skeleton }>
+                    <Skeleton />
                 </Container>
             ))}
             { collection.map( (game) => (
-                <Container>
-                    <GameCard game={ game } key={ game.id }/>
+                <Container key={ game.id }>
+                    <GameCard game={ game }/>
                 </Container>
             )) }
         </SimpleGrid>

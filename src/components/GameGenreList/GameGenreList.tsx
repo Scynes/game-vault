@@ -1,14 +1,23 @@
-import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Skeleton as ChakraSkeleton, Text, SkeletonText, CardBody, Card, Skeleton } from "@chakra-ui/react";
 import useGenresCollection from "@hooks/useGenresCollection";
 import { getCroppedImageURL } from "@services/image";
 
 const GameGenreList = () => {
 
-    const { collection } = useGenresCollection();
+    const { collection, isLoading } = useGenresCollection();
+
+    const skeletons = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 
     return (
         <List spacing={ '0.5rem' }>
-            { collection.map(genre => (
+            { isLoading && skeletons.map(skeleton => (
+                <ListItem key={ skeleton }>
+                    <Card padding={ '1rem' }>
+                        <ChakraSkeleton height={ 2 } />
+                    </Card>
+                </ListItem>
+            )) }
+            { !isLoading && collection.map(genre => (
                 <ListItem key={ genre.id }>
                     <HStack>
                         <Image src={ getCroppedImageURL(genre.image_background) } boxSize={ '2.5rem' } borderRadius={ '0.5rem' }/>
