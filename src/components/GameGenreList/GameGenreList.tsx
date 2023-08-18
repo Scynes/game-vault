@@ -1,4 +1,4 @@
-import { HStack, Image, List, ListItem, Skeleton as ChakraSkeleton, Text, SkeletonText, CardBody, Card, Skeleton } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Skeleton as ChakraSkeleton, Text, Card } from "@chakra-ui/react";
 import useGenresCollection from "@hooks/useGenresCollection";
 import { getCroppedImageURL } from "@services/image";
 
